@@ -1,0 +1,65 @@
+{
+  "report_id": "R-mum-1",
+  "state": {
+    "title": "Wall collapse, Kurla",
+    "description": "",
+    "category": "collapse",
+    "location": null,
+    "severity": 4,
+    "status": "open",
+    "assigned_team": null,
+    "people_estimate": null,
+    "notes": [
+      {
+        "id": "pun:2",
+        "text": "two people still trapped"
+      }
+    ]
+  },
+  "live": {
+    "title": [
+      "mum:1"
+    ],
+    "description": [
+      "mum:1"
+    ],
+    "category": [
+      "mum:1"
+    ],
+    "location": [
+      "mum:1"
+    ],
+    "severity": [
+      "mum:2",
+      "pun:1"
+    ],
+    "status": [
+      "mum:1"
+    ],
+    "assigned_team": [
+      "mum:1"
+    ],
+    "people_estimate": [
+      "mum:1"
+    ]
+  },
+  "conflicts": [
+    {
+      "field": "severity",
+      "values": [
+        5,
+        4
+      ],
+      "event_ids": [
+        "mum:2",
+        "pun:1"
+      ],
+      "rule": "v0-latest",
+      "needs_review": true
+    }
+  ],
+  "incomplete": false,
+  "consistency": {
+    "replication": "LOCAL_ONLY"
+  }
+}

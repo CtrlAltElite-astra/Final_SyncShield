@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.hypothesis/
+data/
+keys/
+.env
+node_modules/
+dashboard/dist/
+*.db
+*.db-wal
+*.db-shm
