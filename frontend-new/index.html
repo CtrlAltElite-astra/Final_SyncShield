@@ -3,10 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="description" content="SyncShield: a live three-region shopping and recovery demo. Follow signed cart updates, replication, failover, and conflict resolution." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>SyncShield</title>
+    <script>
+      // Set the theme before first paint so there is no flash of the wrong one. Keep in step with components/Theme.tsx.
+      (function () {
+        var theme = 'light';
+        try {
+          var saved = localStorage.getItem('syncshield-theme');
+          theme = saved === 'dark' || saved === 'light' ? saved : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        } catch (e) { /* storage blocked: fall back to light */ }
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

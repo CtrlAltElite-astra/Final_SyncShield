@@ -1,0 +1,101 @@
+/* Dark theme. Loaded last. tokens.css, syncshield.css and console.css define the light palette; this file redefines the same tokens
+   for [data-theme="dark"], then fixes the places in syncshield.css that hard-code a light colour (the landing page, the server
+   illustrations and the inspector). The choice is made by components/Theme.tsx and set before first paint by index.html. */
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* base tokens: the same names as the light block at the top of syncshield.css */
+  --bg: #0f110e; --bg-2: #141613; --surface: #151714; --surface-2: #1b1d1a; --surface-3: #232622;
+  --text: #ecedea; --text-2: #c4c7c0; --muted: #9a9e95;
+  --border: #2b2e2a; --border-strong: #3b3e39;
+  --primary: #ecedea; --primary-hover: #ffffff; --primary-ink: #0f110e;
+  --ok: #5fdc92; --ok-bg: #12301f; --warn: #f0b14f; --warn-bg: #33260e; --bad: #ff918a; --bad-bg: #3a1815;
+  --info: #aab6ae; --info-bg: #1f2622; --accent: #a8c09c; --accent-bg: #1f281d;
+  --done: #a3a89d; --done-bg: #20231f; --muted-bg: #20231f;
+  --teal: #ecedea; --blue: #9cb08f; --amber: #e0b564;
+  --node-mum: #9db38f; --node-pun: #9ca8b5; --node-del: #bfae9c;
+  --shadow-sm: 0 1px 3px #0006; --shadow: 0 3px 15px #00000059; --shadow-lg: 0 18px 65px #000000b3;
+  --hero-glow-1: transparent; --hero-glow-2: transparent; --grid-line: #ffffff0a;
+
+  /* console tokens (console.css) */
+  --cx-green: #3ec878; --cx-green-ink: #62dc95; --cx-green-bg: #12301f; --cx-green-line: #1f5a38;
+  --cx-amber: #f0a22e; --cx-amber-ink: #f5bd62; --cx-amber-bg: #33260e; --cx-amber-line: #6b4d17;
+  --cx-red: #ef6459; --cx-red-ink: #ff918a; --cx-red-bg: #3a1815; --cx-red-line: #6e302b;
+  --cx-ink: #ecedea; --cx-ink-2: #c4c7c0; --cx-mute: #9a9e95; --cx-line: #2b2e2a; --cx-soft: #1d201c;
+  --cx-surface: #151714; --cx-canvas: #0f110e; --cx-hover: #242723; --cx-chip: #262925; --cx-track: #2b2e2a;
+  --cx-line-strong: #3b3e39; --cx-line-hover: #4a4e48; --cx-dot: #5a5e56; --cx-scroll: #3b3e39; --cx-note: #1d2420;
+  --cx-on-ink: #0f110e; --cx-ink-hover: #ffffff; --cx-frost: #151714e6;
+  --cx-amber-wash: #1d170b; --cx-red-wash: #221210; --cx-green-wash: #0f2417;
+  --cx-nav: #b4b8ae; --cx-copy: #c4c7c0; --cx-copy-2: #b4b8ae; --cx-copy-3: #9a9e95; --cx-ok-copy: #62dc95; --cx-ok-copy-2: #62dc95; --cx-accent-copy: #8f9a86;
+}
+
+/* ---- buttons: syncshield.css gives the primary button a fixed near-black gradient ----------------------------------------- */
+:root[data-theme="dark"] .btn--primary { background: var(--primary); color: var(--primary-ink); box-shadow: none; }
+:root[data-theme="dark"] .btn--primary:hover:not(:disabled) { background: var(--primary-hover); box-shadow: 0 6px 18px #ffffff1f; }
+:root[data-theme="dark"] .btn--primary::after { background: linear-gradient(105deg, transparent 35%, #ffffff55 50%, transparent 65%); mix-blend-mode: soft-light; }
+
+/* ---- server illustrations: pale metal becomes dark metal ----------------------------------------------------------------- */
+:root[data-theme="dark"] .server-slab { border-color: #4a4e46; background: linear-gradient(155deg, #43473f 0%, #2e312b 40%, #232620 100%); box-shadow: inset 0 1px 1px #ffffff1a, inset 0 -2px 1px #00000050, 0 1px 2px #0008; }
+:root[data-theme="dark"] .server-slab::before { background: linear-gradient(#3d4139, #2a2d28); }
+:root[data-theme="dark"] .server-port { background: #6f7468; box-shadow: inset 0 1px 2px #0008; }
+:root[data-theme="dark"] .server-slab > div > i { background: #7a8070aa; }
+:root[data-theme="dark"] .server-stack { filter: drop-shadow(0 9px 7px #00000066); }
+:root[data-theme="dark"] .server-stack--down { filter: grayscale(.75) opacity(.7); }
+:root[data-theme="dark"] .product-photo--unknown { background: var(--surface-3); color: var(--muted); }
+
+/* ---- landing page -------------------------------------------------------------------------------------------------------- */
+:root[data-theme="dark"] .ss-landing { background: var(--bg); }
+:root[data-theme="dark"] .ss-landing h1, :root[data-theme="dark"] .ss-landing h2, :root[data-theme="dark"] .ss-landing h3 { color: var(--text); }
+:root[data-theme="dark"] .landing-nav { border-color: var(--border); }
+:root[data-theme="dark"] .landing-nav.is-scrolled { box-shadow: 0 12px 34px #000000a6; }
+:root[data-theme="dark"] .landing-nav nav a:hover { color: var(--text); }
+:root[data-theme="dark"] .ss-brand .brand-period { color: var(--muted); }
+:root[data-theme="dark"] .quiet-link { border-bottom-color: var(--border-strong); }
+:root[data-theme="dark"] .hero-meta > span + span::before { background: var(--border-strong); }
+:root[data-theme="dark"] .hero-visual { border-color: var(--border); background: radial-gradient(ellipse at 50% 50%, #ffffff08, transparent 70%), var(--surface); }
+:root[data-theme="dark"] .visual-title > span:first-child { color: var(--text-2); }
+:root[data-theme="dark"] .illustration-label { border-color: var(--border); background: var(--surface-2); color: var(--muted); }
+:root[data-theme="dark"] .floating-receipt { border-color: var(--border); background: var(--surface-2); box-shadow: 0 8px 23px #0006; }
+:root[data-theme="dark"] .receipt-check { background: var(--ok-bg); color: var(--ok); }
+:root[data-theme="dark"] .hero-flow::before { background: var(--border-strong); }
+:root[data-theme="dark"] .browser-mini { border-color: var(--border-strong); background: var(--surface-2); box-shadow: none; }
+:root[data-theme="dark"] .browser-mini > div { border-bottom-color: var(--border); background: var(--surface-3); }
+:root[data-theme="dark"] .browser-mini > div > i { background: var(--border-strong); }
+:root[data-theme="dark"] .flow-connector { color: var(--muted); }
+:root[data-theme="dark"] .flow-connector > i { background: var(--border-strong); }
+:root[data-theme="dark"] .signed-ticket { border-color: var(--border); background: var(--surface-2); color: var(--text-2); box-shadow: none; }
+:root[data-theme="dark"] .hero-server-tile { border-color: var(--border); background: linear-gradient(150deg, var(--surface-2), var(--surface)); }
+:root[data-theme="dark"] .hero-region:first-of-type .hero-server-tile { border-color: var(--cx-green-line); box-shadow: 0 0 0 4px #3ec8781a; }
+:root[data-theme="dark"] .hero-region.is-down .hero-server-tile { border-color: var(--cx-red-line); background: var(--cx-red-wash); }
+:root[data-theme="dark"] .tile-status { border-color: var(--surface); }
+:root[data-theme="dark"] .hero-region.is-down > span { color: var(--cx-red-ink); }
+:root[data-theme="dark"] .hero-visual-footer { border-top-color: var(--border); background: var(--surface-2); }
+:root[data-theme="dark"] .principles article > span { color: var(--text-2); }
+:root[data-theme="dark"] .walk-art { background: var(--surface-2); }
+:root[data-theme="dark"] .art-shop > div > span, :root[data-theme="dark"] .art-sync > div > span,
+:root[data-theme="dark"] .art-recover > div > span { color: var(--muted); }
+:root[data-theme="dark"] .mini-add { background: var(--primary); color: var(--primary-ink); }
+:root[data-theme="dark"] .mini-link { border-top-color: var(--border-strong); }
+:root[data-theme="dark"] .recover-cross { border-color: var(--cx-red-line); background: var(--cx-red-wash); color: var(--cx-red-ink); }
+:root[data-theme="dark"] .recover-box { border-color: var(--cx-green-line); background: var(--cx-green-wash); color: var(--cx-green-ink); }
+:root[data-theme="dark"] .recover-box i { background: var(--cx-green); color: var(--cx-on-ink); }
+:root[data-theme="dark"] .art-recover > svg { color: var(--muted); }
+:root[data-theme="dark"] .evidence-list article > svg { color: var(--text-2); }
+:root[data-theme="dark"] .evidence-list article > svg:last-child { color: var(--muted); }
+:root[data-theme="dark"] .landing-cta { border-color: var(--border); background: var(--surface-2); }
+:root[data-theme="dark"] .landing-footer > span { color: var(--muted); }
+:root[data-theme="dark"] .landing-footer > a:last-child { color: var(--text-2); }
+
+/* ---- inspector and evidence views (the panels themselves follow the tokens above) ---------------------------------------- */
+:root[data-theme="dark"] .inspector-panel { background: var(--surface); }
+:root[data-theme="dark"] .inspector-content .node--serving { box-shadow: 0 0 0 1px var(--cx-green-line); }
+:root[data-theme="dark"] .inspector-content .ladder li { color: var(--muted); }
+:root[data-theme="dark"] .inspector-content .ladder i { background: var(--border-strong); }
+:root[data-theme="dark"] .inspector-content .ladder .is-on { color: var(--cx-green-ink); }
+:root[data-theme="dark"] .inspector-content .ladder .is-on i { background: var(--cx-green); }
+:root[data-theme="dark"] .inspector-content .ladder .is-isolated { color: var(--cx-amber-ink); }
+:root[data-theme="dark"] .inspector-content .ladder .is-isolated i { background: var(--cx-amber); }
+:root[data-theme="dark"] .mode-note { border-color: var(--cx-amber-line); background: var(--cx-amber-bg); color: var(--cx-amber-ink); }
+:root[data-theme="dark"] .evidence-intro > p, :root[data-theme="dark"] .evidence-boundary { color: var(--text-2); }
+:root[data-theme="dark"] .inspector-intro > span { color: var(--muted); }

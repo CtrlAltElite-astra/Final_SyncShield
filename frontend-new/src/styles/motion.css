@@ -87,15 +87,15 @@ html[data-motion="reduced"] [data-reveal] { opacity: 1; }
 .sp-count { animation: cx-pop .4s both; }
 
 /* ---- landing page --------------------------------------------------------------------------------------------------------- */
-.landing-nav { position: sticky; top: 12px; z-index: 60; background: #ffffffe6; backdrop-filter: blur(14px); transition: box-shadow .3s, border-color .3s, transform .3s; animation: cx-fade .6s both; }
-.landing-nav.is-scrolled { box-shadow: 0 12px 34px #1d1f1e18; border-color: #dcddd5; }
+.landing-nav { position: sticky; top: 12px; z-index: 60; background: var(--cx-frost); backdrop-filter: blur(14px); transition: box-shadow .3s, border-color .3s, transform .3s; animation: cx-fade .6s both; }
+.landing-nav.is-scrolled { box-shadow: 0 12px 34px #1d1f1e18; border-color: var(--cx-line-strong); }
 .landing-nav .motion-toggle { margin-left: auto; }
 .landing-nav nav a { position: relative; font-size: 17px; }
 .landing-nav nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--cx-ink); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
 .landing-nav nav a:hover::after { transform: scaleX(1); }
 
 .hero-copy h1 > .ln { display: block; overflow: hidden; padding-bottom: .08em; color: var(--cx-ink); }
-.hero-copy h1 > .ln > .accent { color: #7a8271; }
+.hero-copy h1 > .ln > .accent { color: var(--cx-accent-copy); }
 .hero-copy h1 .ln > span { display: block; animation: cx-line .95s cubic-bezier(.2, .8, .2, 1) backwards; animation-delay: calc(var(--i) * .13s + .1s); }
 .hero-copy .eyebrow { animation: cx-rise .7s both; }
 .hero-copy > p { animation: cx-rise .8s .55s both; }

@@ -9,9 +9,10 @@ import './styles/syncshield.css'
 import './styles/console.css'
 import './styles/motion.css'
 import './styles/scale.css'
+import './styles/dark.css'
+import { ThemeProvider } from './components/Theme'
 import { initMotion } from './lib/motion'
 
-document.documentElement.dataset.theme = 'light'
 initMotion()
 
-createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>)
+createRoot(document.getElementById('root')!).render(<StrictMode><ThemeProvider><App /></ThemeProvider></StrictMode>)

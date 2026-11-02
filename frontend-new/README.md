@@ -70,6 +70,10 @@ None of this is on in a real region until you switch it on, and the simulator (`
 
 Animation is on by default. The **Motion** switch in the navigation turns it off (and back on) and remembers the choice. The browser's own "reduce motion" setting is deliberately not a silent kill switch here: with it, the whole page used to be static with no way to turn animation back on.
 
+### Theme
+
+Light and dark. The **sun/moon button** beside the Motion switch (landing navigation and console header) flips it and remembers the choice (`localStorage` key `syncshield-theme`); with no saved choice the system's colour scheme decides, and follows it live. `index.html` sets `data-theme` before first paint, so there is no flash. `components/Theme.tsx` holds the provider and the button. The palettes are tokens: `--cx-*` in `console.css` (light values) and `styles/dark.css`, which is loaded last, redefines them for `[data-theme="dark"]` and fixes the few colours `syncshield.css` hard-codes (landing page, server illustrations, inspector). New CSS should use a token rather than a hex value, or it will stay light in dark mode.
+
 All counts and confirmations come from live responses or this browser's session. Session counters start at zero and differ from the region's persisted event count. An unreachable region is shown as offline or unknown, never healthy. Missing optional metrics/fuzz results remain explicitly unavailable. The SDK recovery outbox is in memory and disappears when the tab closes; it is not durable offline storage.
 
 ## Validation

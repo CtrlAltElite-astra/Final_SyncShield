@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { DemoProvider, useDemo } from '../state/demo'
 import type { RegionId } from '../api/types'
 import { Brand, Light, MotionToggle } from '../components/Visuals'
+import { ThemeToggle } from '../components/Theme'
 import { Icon } from '../components/icons'
 import { Shop } from '../components/Shop'
 import { SessionStats, Topology, RegionCards, LatestAction, EventTrail, FailureControls } from '../components/LiveSystem'
@@ -82,6 +83,7 @@ function Workspace() {
         </nav>
         <div className="cx-top-right">
           <MotionToggle />
+          <ThemeToggle />
           <span className="cx-workspace"><Icon name="server" size={18} />{d.mode === 'live' ? 'Live workspace' : 'Simulator workspace'}</span>
           <span className="cx-avatar" title={`Shopping as ${d.shopper}`}>{d.shopper[0]}</span>
         </div>
