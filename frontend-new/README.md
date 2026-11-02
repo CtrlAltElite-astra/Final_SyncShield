@@ -40,7 +40,7 @@ Do not start duplicate processes on occupied ports. Crash/restart and proof cont
 - `src/components/LiveSystem.tsx`: evidence tiles, the browser-to-region route, **three region cards** (events, carts, at risk, the shopper's cart as that region holds it), replication link pills, the latest action as three steps, the event trail, and the pause/resume controls. Each card has its own **Hold to crash** / **Restart** button.
 - The inspector keeps Carts, Network (up/slow/cut, burst, tamper), Review (supervisor decisions), Outbox, Security, Metrics, API and Prove it. The Inspect view shows the same region cards above the tabs.
 - `src/sdk`, `src/api`, `src/state` and the domain logic come from `web/`: failover, idempotency keys, signed-event carrying, and the original tests. A write is only finished once the page has re-read the node, so the next action never sends stale `expected` ids.
-- Styles: `syncshield.css` (inspector panels and the landing), `console.css` (shell, shop, region cards; readable, commented), `motion.css` (status lights, crash and heal animations, buttons, reveals, landing motion). Type scale: body 14 px, secondary 13 px, labels about 11.5 px.
+- Styles: `syncshield.css` (inspector panels and the landing), `console.css` (shell, shop, region cards; readable, commented), `motion.css` (status lights, crash and heal animations, buttons, reveals, landing motion), `dark.css` (the dark palette, loaded last; see Theme). Type scale: body 14 px, secondary 13 px, labels about 11.5 px.
 
 ### Status lights and the crash animation
 
@@ -80,7 +80,7 @@ All counts and confirmations come from live responses or this browser's session.
 
 ```powershell
 npm run typecheck
-npm test             # 105 tests: derive, the simulated world, the SDK (failover, outbox, idempotent retries), the limits, power and the fourth region, the helpers
+npm test             # 118 tests: derive, the simulated world, the SDK (failover, outbox, idempotent retries), the limits, power and the fourth region, the helpers
 npm run build
 ```
 
@@ -98,6 +98,11 @@ backends** (throwaway databases and signing keys on ports 18101-18103, so the de
 
 The harness is `.local/integration.cjs` (git-ignored, machine-specific Playwright path); run it from this folder with the dev server
 on port 5175. It reads which region is serving and crashes that one, so it does not assume Mumbai.
+
+After the dark theme (2 November 2026): typecheck, 118 tests and the production build pass. Both themes were checked by eye in headless Chrome on the
+landing page, the Overview, Inspect (Carts, Network, Review, Security, Scaling) and Evidence views, and the landing navigation at 320 to 430 px with no
+horizontal overflow. The browser harness above was **not** re-run after this change, and the Metrics, API and Prove it tabs, the history drawer and the toasts
+were not looked at in dark.
 
 What this does not show: it is a local, single-machine demonstration. Payment and order steps are state changes, not real payments.
 The recovery outbox is in memory and is lost when the tab closes.
